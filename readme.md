@@ -45,15 +45,15 @@ sky-tv-annual-report-2024-pages-101-to-132.pdf
 
 ### Update SQL script
 
-Update the SQL script to reference your PDF files. If you split your PDF files you need to reference the split versions.
+Update the `rag.sql` script to reference your PDF files. If you split your PDF files, you will need to reference the split versions.
 
 Areas to update are denoted by `ALTER` comments.
 
 ### Create Snowflake resources
 
-- Run `rag.sql` against your Snowflake account, using the VSCode Snowflake extension
+Run `rag.sql` against your Snowflake account, using the VSCode Snowflake extension
 
 ### Talk to the chatbot
 
-- Open the `CHATBOT` Streamlit application in the Snowflake UI and ask questions about the content of your PDF files
+Open the `CHATBOT` Streamlit application in the Snowflake UI and ask questions about the content of your PDF files
 
