@@ -90,6 +90,8 @@ put 'file:///home/joel/projects/snowflake-rag/sky-tv-annual-report-2024-pages-10
 
 ls @docs;
 
+alter stage docs refresh;
+
 ------------------ 3. Data Preperation ------------------
 
 create or replace table docs_chunks ( 
@@ -97,7 +99,7 @@ create or replace table docs_chunks (
     size number, -- size of the pdf
     file_url varchar, -- url for the pdf
     scoped_file_url varchar, -- scoped url (choose which one to keep based on use case)
-    chunk varchar, -- piece of text
+    chunk varchar -- piece of text
 );
 
 insert overwrite into docs_chunks (relative_path, size, file_url, scoped_file_url, chunk)

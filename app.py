@@ -13,7 +13,7 @@ CORTEX_SEARCH_SCHEMA = "POC"
 CORTEX_SEARCH_SERVICE = "VECTOR_STORE"
 NUM_CHUNKS = 10  # Number of chunks to include in RAG context
 COLUMNS = ["chunk", "relative_path"]
-CHAT_MODEL = "llama3-8b"
+CHAT_MODEL = "mixtral-8x7b"
 
 # Create clients
 session = get_active_session()
