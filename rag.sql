@@ -83,8 +83,10 @@ create or replace stage docs
 encryption = (type = 'snowflake_sse') 
 directory = (enable = true);
 
--- Alter filepath to match your files
-put 'file:///home/joel/projects/snowflake-rag/sky-tv-annual-report-2024.pdf' @docs auto_compress=false overwrite=true;
+-- ALTER: Change the file path to match your files
+put 'file:///home/joel/projects/snowflake-rag/sky-tv-annual-report-2024-pages-1-to-50.pdf' @docs auto_compress=false overwrite=true;
+put 'file:///home/joel/projects/snowflake-rag/sky-tv-annual-report-2024-pages-51-to-100.pdf' @docs auto_compress=false overwrite=true;
+put 'file:///home/joel/projects/snowflake-rag/sky-tv-annual-report-2024-pages-101-to-132.pdf' @docs auto_compress=false overwrite=true;
 
 ls @docs;
 
@@ -128,7 +130,7 @@ create or replace stage code
 encryption = (type = 'snowflake_sse')
 directory = (enable = true);
 
--- Alter filepath to match your files
+-- ALTER: Change the file path to match your filepath
 put 'file:///home/joel/projects/snowflake-rag/app.py' @code auto_compress=false overwrite=true;
 put 'file:///home/joel/projects/snowflake-rag/environment.yml' @code auto_compress=false overwrite=true;
 
