@@ -33,7 +33,7 @@ python prepare_files.py <file 1> <file 2> --chunk_size <n>
 
 Using the example sky-tv-annual-report-2024.pdf file:
 ```bash
-python prepare_files.py sky-tv-annual-report-2024.pdf --chunk_size 100
+python prepare_files.py sky-tv-annual-report-2024.pdf --chunk_size 50
 ```
 
 The output using the example file will be:
