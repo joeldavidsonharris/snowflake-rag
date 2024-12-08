@@ -16,29 +16,18 @@ cortex_enabled_cross_region = 'ANY_REGION';
 
 use role sysadmin;
 
-create warehouse admin_wh
-warehouse_size = xsmall
-auto_suspend = 60
-initially_suspended = true;
-
 create warehouse rag_wh
 warehouse_size = xsmall
 auto_suspend = 60
 initially_suspended = true;
 
-create database admin;
 create database rag;
 
-drop schema admin.public;
 drop schema rag.public;
 
 use role securityadmin;
 
-grant imported privileges on database snowflake to role securityadmin;
 grant imported privileges on database snowflake to role sysadmin;
-
-grant usage on warehouse admin_wh to role securityadmin;
-grant all on database admin to role securityadmin;
 
 use role sysadmin;
 use warehouse rag_wh;
@@ -133,12 +122,12 @@ encryption = (type = 'snowflake_sse')
 directory = (enable = true);
 
 -- ALTER: Change the file path to match your filepath
-put 'file:///home/joel/projects/snowflake-rag/app.py' @code auto_compress=false overwrite=true;
+put 'file:///home/joel/projects/snowflake-rag/rag-app.py' @code auto_compress=false overwrite=true;
 put 'file:///home/joel/projects/snowflake-rag/environment.yml' @code auto_compress=false overwrite=true;
 
 ls @code;
 
 create or replace streamlit chatbot
 root_location = '@rag.poc.code'
-main_file = 'app.py'
+main_file = 'rag-app.py'
 query_warehouse = rag_wh;
